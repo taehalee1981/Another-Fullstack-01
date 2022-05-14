@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Bug Tracker</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+        <script>
+            // browser + watch
+            document.onreadystatechange = () => {
+                if(document.readyState === 'interactive') {
+                    document.getElementById('userAgent').value = window.navigator.userAgent;
+                    document.getElementById('userDate').value = new Date;
+                    console.log('hihihihihi', window.navigator.userAgent);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">BugTracker</a>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>Bug report tool</h1>
+            <p>Fill in the form below</p>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name :</label>
+                    <input type="text" id="name" name="name" class="form-control"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="text" id="email" name="email" class="form-control"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="issueType" class="form-label">Issue type :</label>
+                    <select type="text" id="issueType" name="issueType" class="form-control">
+                        <option value="">Choose</option>
+                        <option value="CRITICAL">CRITICAL</option>
+                        <option value="BUG">BUG</option>
+                        <option value="IMPROVEMENT">IMPROVEMENT</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="howToReproduce" class="form-label">How to reproduce the bug :</label>
+                    <input type="text" id="howToReproduce" name="howToReproduce" class="form-control"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="expectedOutput" class="form-label">Expected result :</label>
+                    <textarea id="expectedOutput" name="expectedOutput" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="receivedOutput" class="form-label">Received result :</label>
+                    <textarea id="receivedOutput" name="receivedOutput" class="form-control"></textarea>
+                </div>
+                
+                <input type="hidden" id="userAgent" name="userAgent"/>
+                <input type="hidden" id="userDate" name="userDate"/>
+                
+                <button class="btn btn-outline-primary">Send</button>
+            </form>
+        </div>
+    </body>
+</html>
